@@ -1,0 +1,18 @@
+
+<div id="main">
+  <h1>Registration</h1>
+  <form (submit)="saveUser()">
+      <input type="text" name="fname" [(ngModel)]="user.firstName" placeholder="First Name">
+      <input type="text" name="lname" [(ngModel)]="user.lastName" placeholder="Last Name"> <br>
+      <input type="number" name="phNumber" [(ngModel)]="user.phone" placeholder="Phone Number">
+      <input type="date" name="dob" [(ngModel)]="user.dob" placeholder="D.O.B"> <br>
+      <textarea id="address" name="address" [(ngModel)]="user.address" rows="3" cols="42">Address... </textarea> <br>
+      <input type="text" name="userName" [(ngModel)]="user.userId" placeholder=" User Id">
+      <input type="text" name="password" [(ngModel)]="user.password" placeholder=" password"> <br>
+      <input type="hidden" name="walletAmount" [(ngModel)]="user.wallet" value="0">
+      <input class="button" type="submit" value="Submit">
+      <a class="button button4" routerLink="/login" routerLinkActive="router-link-active"> Back </a>
+  </form>
+</div>
+
+<router-outlet></router-outlet>

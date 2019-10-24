@@ -1,0 +1,21 @@
+<div id="main">
+  <h1>Sell Items</h1>
+  <form (submit)="saveItem()">
+
+      <input type="text" name="itemName" [(ngModel)]="item.itemName" placeholder="Item Name"><br>
+      <input type="number" name="cost" [(ngModel)]="item.cost" placeholder="Item Cost"><br>
+      <textarea id="desc" name="desc" [(ngModel)]="item.desc" rows="3" cols="42">Item Desc... </textarea> <br>
+      <input type="hidden" name="itemId"  value="it01"> <br>
+      <input type="hidden" name="userId"  value="ank1310"> <br>
+      <input type="hidden" name="status"  value="false"> <br>
+      <input class="button" type="submit" value="Submit">
+  </form>
+</div>
+
+{{item.itemId}}
+<!-- itemName: string;
+desc: string;
+userId: string;
+cost: number;
+status: boolean;
+} -->
