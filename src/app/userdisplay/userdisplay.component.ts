@@ -4,11 +4,11 @@ import { ItemService } from '../ItemService';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-userdisplay',
+  templateUrl: './userdisplay.component.html',
+  styleUrls: ['./userdisplay.component.css']
 })
-export class HomeComponent implements OnInit {
+export class UserdisplayComponent implements OnInit {
 
   constructor(private itemSrv : ItemService) { }
   itemList : Item[] = [];

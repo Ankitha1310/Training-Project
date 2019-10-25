@@ -1,17 +1,16 @@
-<input type=submit  (click)="getItems()">
 
 <h2>My Items</h2>
 <table border="2">
 
 
 <tr *ngFor="let item of itemList">
-   <td>{{item.itemId}} </td>
+   <td>{{item.itemId}}</td>
    <td>{{item.itemName}}</td>
-   <td>{{item.cost}}</td>
-   <td><form (submit)=approve()>
-      <input type="submit" name="item" [(ngModel)]="item.itemId" >
-   </form></td>
-   <td><input type="submit" ng-click="disapprove()" value="Disapprove"></td>
+   <td>{{item.userId}}</td>
+   <td>{{item.status}} </td>
+   <td>{{item.desc}}</td>
+   <td><input type="submit" value="Approve" (click)="approve(item.itemId)" ></td>
+   <td><input type="submit" value="Disapprove" (click)="disapprove(item.itemId)" ></td>
 </tr>
 
 </table>

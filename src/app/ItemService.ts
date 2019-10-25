@@ -31,17 +31,22 @@ export class ItemService {
 
   getItemByName(itemName: string)
   {
-    return this.http.get<Item[]>('http://localhost:1002/item2/${itemName}');
+    return this.http.get<Item[]>(`http://localhost:1002/item2/${itemName}`);
   }
 
-  updateItem(itemId: string)
+  approveItem(itemId: string)
   {
-    return this.http.put<Item>('http://localhost:1002/user',itemId);
+    return this.http.put<Item[]>(`http://localhost:1002/item/${itemId}`, null);
   }
 
-  deleteItem(itemId: string)
+  disapproveItem(itemId: string)
   {
-    return this.http.delete<Item>('http://localhost:1002/user/${itemId}');
+    return this.http.put<Item[]>(`http://localhost:1002/item1/${itemId}`, null);
+  }
+
+  deleteItem(itemId:string)
+  {
+    return this.http.delete(`http://localhost:1002/item/${itemId}`);
   }
 }
 
