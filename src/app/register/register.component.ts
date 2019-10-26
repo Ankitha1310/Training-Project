@@ -19,7 +19,8 @@ export class RegisterComponent implements OnInit {
     "lastName":"",
     "phone":0,
     "address":"",
-    "wallet":0
+    "wallet":0,
+    "key":""
   };
 
   saveUser()

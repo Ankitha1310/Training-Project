@@ -1,10 +1,13 @@
 <div id="main">
   <h1>Login</h1>
   <form>
-      <input type="text" name="username" placeholder="Username"> <br>
-      <input type="text" name="password" placeholder="Password"> <br>
+      <input type="text"  name="v" placeholder="Username" [(ngModel)]="name"> <br>
+      <!--<input type="text" name="password" placeholder="Password"> <br>-->
+      <input type="text" name="k" placeholder="answer" [(ngModel)]="key"> <br>
+      <input type="submit" name="Forgot password" (click)="forgot()"> <br>
       <a class="button" routerLink="/home" routerLinkActive="router-link-active"> Login </a>
-      <a class="button button2" routerLink="/register" routerLinkActive="router-link-active"> Register </a> 
+      <a class="button button2" routerLink="/register" routerLinkActive="router-link-active"> Register </a>
   </form>
 </div>
 <router-outlet></router-outlet>
+

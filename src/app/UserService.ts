@@ -29,17 +29,10 @@ export class UserService {
     return this.http.put<User>('http://localhost:1002/user',userId);
   }
 
-
-
-//   updateUser(user:User)
-//   {
-//     return this.http.put<User>('http://localhost:1023/user',user);
-//   }
-
-//   deleteUser(userName:string)
-//   {
-//     return this.http.delete(`http://localhost:1023/player/${playerId}`);
-//   }
+  forgotPassword(userId:string, key:string)
+  {
+    return this.http.get<any>(`http://localhost:1002/user/${userId}/${key}`);
+  }
 
 }
 

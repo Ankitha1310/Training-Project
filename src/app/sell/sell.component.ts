@@ -27,9 +27,7 @@ export class SellComponent implements OnInit {
     );
   }
 
-
-
-  ngOnInit() {
+ngOnInit() {
   }
 
 }

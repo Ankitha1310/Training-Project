@@ -7,4 +7,5 @@ export interface User {
   address:string;
   phone:number;
   wallet:number;
+  key:string;
 }

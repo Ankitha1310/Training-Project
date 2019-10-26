@@ -1,12 +1,1 @@
-<h2>Items On Bid</h2>
-<table border="2">
-
-
-<tr *ngFor="let item of itemList">
-   <td>{{item.itemId}}</td>
-   <td>{{item.itemName}}</td>
-   <td>{{item.userId}}</td>
-   <td>{{item.desc}}</td>
-</tr>
-
-</table>
+<input type="file" (change)="upload($event.target.files)"/>
