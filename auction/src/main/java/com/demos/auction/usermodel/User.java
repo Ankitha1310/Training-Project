@@ -18,6 +18,7 @@ public class User {
 	String address;
 	long phone; 
 	int wallet;
+	String key;
 	
 	
 	public String getUserId() {
@@ -68,6 +69,11 @@ public class User {
 	public void setWallet(int wallet) {
 		this.wallet = wallet;
 	}
-	
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key= key;
+	}
 	
 }

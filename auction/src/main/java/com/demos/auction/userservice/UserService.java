@@ -51,4 +51,15 @@ public class UserService {
 			return  "Error "+e;
 			}
 	}
+	
+	public String forgotPassword(String userId, String key) {
+		try {
+			return userDao.forgotPassword(userId, key);
+			}
+			catch (Exception e) {
+			return  "Error "+e;
+			}
+	}
+	
+	
 }

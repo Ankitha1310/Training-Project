@@ -1,7 +1,5 @@
 package com.demos.auction.itemdao;
 
-import java.io.Console;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +25,11 @@ public class ItemDao {
 		return mongoTemplate.findAll(Item.class);
 	}
 
-	public Item getItemById(String itemId) {
+	public Item getItemById(String id) {
 		Query query = new Query();
-		query.addCriteria(Criteria.where("itemId").is(itemId));
-		return mongoTemplate.findOne(query, Item.class);
-	}
-
+		query.addCriteria(Criteria.where("itemId").is(id));
+		return mongoTemplate.findOne(query, Item.class);	}
+	
 	public String deleteItem(String itemId) {
 		Query query = new Query();
 		query.addCriteria(Criteria.where("itemId").is(itemId));
@@ -56,7 +53,24 @@ public class ItemDao {
 		return items;
 	}
 	
+	public List<Item> approveItem(String itemId) {
+		Query query=new Query();
+		query.addCriteria(Criteria.where("itemId").is(itemId));
+		Item item = mongoTemplate.findOne(query, Item.class);
+		item.setStatus(true);
+		mongoTemplate.save(item);
+		
+		return getAllItems();
+	}
 	
+	public List<Item> disapproveItem(String itemId) {
+		Query query=new Query();
+		query.addCriteria(Criteria.where("itemId").is(itemId));
+		Item item=mongoTemplate.findOne(query, Item.class);
+		item.setStatus(false);
+		mongoTemplate.save(item);
+		return getAllItems();
+	}
 	
 	
 	

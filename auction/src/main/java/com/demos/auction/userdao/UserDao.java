@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
+import com.demos.auction.itemmodel.Item;
 import com.demos.auction.usermodel.User;
 
 @Component
@@ -29,7 +30,6 @@ public class UserDao {
 
 	}
 	
-	
 	public User getUser(String userId)
 	{
 		Query query = new Query();
@@ -45,5 +45,15 @@ public class UserDao {
 		return "User Deleted";
 	}
 
-	
+	public String forgotPassword(String userId ,String ans) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("userId").is(userId));
+		User user=mongoTemplate.findOne(query, User.class);
+		String key = user.getKey();
+		if(ans.equalsIgnoreCase(key))
+			return "Success";
+		else
+			return "Wrong Answer";
+				
+	}
 }

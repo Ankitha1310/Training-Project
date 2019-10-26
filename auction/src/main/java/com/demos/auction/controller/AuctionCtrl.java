@@ -64,6 +64,12 @@ public class AuctionCtrl {
 
 	}
 	
+	@GetMapping(value="user/{userId}/{key}")
+	public String forgotPassword(@PathVariable String userId, @PathVariable String key)
+	{
+		return userService.forgotPassword(userId, key); 
+	}
+	
 	/* ---------------------
 	 * ITEM CONTROLLER PART 
 	 * ---------------------*/
@@ -85,7 +91,7 @@ public class AuctionCtrl {
 	}
 	
 	@GetMapping(value="item/{itemId}")
-	public Object getItem(@PathVariable String itemId )
+	public Object getItem(@PathVariable String itemId )  //method only for postman
 	{
 		return itemService.getItemById(itemId);
 		
@@ -98,12 +104,12 @@ public class AuctionCtrl {
 		
 	} 
 	
-	@PutMapping(value="item")
-	public Item updateItem(@RequestBody Item item)
-	{
-		return itemService.saveItem(item);
-
-	}
+//	@PutMapping(value="item")
+//	public Item updateItem(@RequestBody Item item)
+//	{
+//		return itemService.saveItem(item);
+//
+//	}
 	
 	@GetMapping(value="item1/{status}")
 	public List<Item> getItemByStatus(@PathVariable boolean status)
@@ -119,5 +125,18 @@ public class AuctionCtrl {
 		
 	}
 	
+	@PutMapping(value="item/{itemId}")
+	public List<Item> approveItem(@PathVariable String itemId)
+	{
+		return itemService.approveItem(itemId); 
+
+	}
+	
+	@PutMapping(value="item1/{itemId}")
+	public List<Item> disapproveItem(@PathVariable String itemId )
+	{
+		return itemService.disapproveItem(itemId); 
+
+	}
 	
 }
